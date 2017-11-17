@@ -37,7 +37,8 @@ class M_asking extends CI_Model {
 		$this->db->cache_on();
 		$this->db->select('*')
 				 ->from('comments')
-				 ->join('users', 'users.id_user=comments.id_user');
+				 ->join('users', 'users.id_user=comments.id_user')
+				 ->order_by('created_at', 'asc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
@@ -52,10 +53,12 @@ class M_asking extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function getAnswers($where=array()){
-
-		$query = $this->db->get_where('answers',$where);
-		return $query->result_array();
+	public function countAnswers($where=array()) {
+		$query = $this->db->select('*')
+				  	  	->from('answers')
+						->where($where)
+						->get();
+		return $query->num_rows();
 	}
 
 }

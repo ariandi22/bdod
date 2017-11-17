@@ -11,9 +11,10 @@ class Welcome extends CI_Controller {
 
 
 	public function index() {
-
+		
 		$data['asking'] = $this->m_asking->index();
-		$this->load->view('welcome_message' , $data);
+		$data['content'] = 'welcome_message';
+		$this->load->view('frontend/header' , $data);
 	}
 
 	public function getDetails($id) {
@@ -21,7 +22,9 @@ class Welcome extends CI_Controller {
 		$data['ask'] = $this->m_asking->getAsk(array('ask.id_asking' => $id));
 		$data['comments'] = $this->m_asking->iComments();
 		$data['answers'] = $this->m_asking->getAns(array('answers.id_answer_to' => $id));
+		$data['countans'] = $this->m_asking->countAnswers(array('id_answer_to' => $id));
 
-		$this->load->view('asking/index', $data);
+		$data['content'] = 'asking/index';
+		$this->load->view('frontend/header', $data);
 	}
 }

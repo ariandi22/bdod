@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2017 at 12:30 PM
+-- Generation Time: Nov 17, 2017 at 08:51 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -55,6 +55,7 @@ INSERT INTO `answers` (`id_answer`, `answer`, `id_user`, `created_at`, `id_answe
 
 CREATE TABLE `ask` (
   `id_asking` int(255) NOT NULL,
+  `ask_title` varchar(255) NOT NULL,
   `asking` text NOT NULL,
   `id_user` int(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -65,9 +66,9 @@ CREATE TABLE `ask` (
 -- Dumping data for table `ask`
 --
 
-INSERT INTO `ask` (`id_asking`, `asking`, `id_user`, `created_at`, `point`) VALUES
-(1, 'How to Integrated MongoDB and Codeigniter', 1, '2017-11-15 00:00:00', 0),
-(2, 'Mysqli and mysql and PDO. What such an different?', 3, '2017-11-15 21:04:31', 0);
+INSERT INTO `ask` (`id_asking`, `ask_title`, `asking`, `id_user`, `created_at`, `point`) VALUES
+(1, 'Cara integrase codeigniter dengan template AdminBsb', 'Om, minta tutorial cara instegrasi admin BSB dengan codeigniter dong. Bingung caranya soalnya baru pertama kali pakek.\r\n\r\n<b>Mohon bantuannya suhu</b>', 1, '2017-11-15 00:00:00', 0),
+(2, 'Cara koneksi mysqli dengan PHP', 'Malam om, mau nanya cara integrasi mysqli dengan php. Aku nyobak kok gak mau jalan ya?<p>Mohon bimbngannya suhu master</p>\r\n', 3, '2017-11-15 21:04:31', 0);
 
 -- --------------------------------------------------------
 
