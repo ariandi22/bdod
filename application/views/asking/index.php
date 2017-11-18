@@ -12,12 +12,13 @@
 				    		<?= $ask['ask_title'] ?>
 				    	</a>
 				    </h4>
-				    <div class="dt">
+				    <div class="dt prof">
 				    asked by : <a><?= $ask['name'] ?></a> at <small><?= date('M d - h:i A ', strtotime($ask['created_at'])); ?></small>
 				    </div>
-				    <hr>
+
 				    <div class="qa">
 				    <?= $ask['asking'] ?>
+				    <?= $print ?>
 					</div>
 
 					<div class="hastag">
@@ -27,8 +28,19 @@
 					</div>
 
 					<div class="action-bottom">
-						<a href="">beri komentar</a> | <a href="">share</a>
+						<a href="#" class="ln" data-toggle="collapse" data-target="#ask_com">beri komentar</a> | <a href="">share</a>
 					</div>
+
+						<div id="ask_com" class="collapse">
+							<div class="panel-body">
+								<div class="form-group">
+									<textarea class="form-control" rows="4"></textarea>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-sm pull-right">add comment</button>
+								</div>
+							</div>
+						</div>
 
 					<hr>
 				    <?php foreach ($comments as $a) { ?>
@@ -39,7 +51,7 @@
 					      <img class="media-object img-circle" src="<?= base_url('assets/img/img-men2.png') ?>" width="20">
 					    </a>
 					  </div>
-					  <div class="media-body">
+					  <div class="media-body hr">
 					    <h5 class="media-heading dt">
 					    	<a href="#"><?= $a['name'] ?></a>
 					    	<small><?= date('M d - h:i A ', strtotime($a['created_at'])); ?></small>
@@ -47,7 +59,6 @@
 						    <?= $a['comment']; ?>
 					  </div>
 					</div>
-					<hr>
 					<?php } ?>
 					<?php } ?>
 
@@ -62,31 +73,39 @@
 				    <div class="media">
 					  <div class="media-left">
 					    <a href="#">
-					      <img class="media-object" src="<?= base_url('assets/img/img-men2.png') ?>" width="45">
+					      <img class="media-object img-rounded" src="<?= base_url('assets/img/img-men2.png') ?>" width="45">
 					    </a>
 					  </div>
 					  <div class="media-body">
 					    <h4 class="media-heading">
 					    	<a href="#">
-					    		<?= $a['name'] ?>
+					    		<?= $c['name'] ?>
 					    	</a>
 					    </h4>
-					    <?= $c['answer'] ?>
+					    <div class="dt prof">
+					    answers by : <a><?= $c['name'] ?></a> at <small><?= date('M d - h:i A ', strtotime($c['created_at'])); ?></small>
+					    </div>
 
+					    <div class="qa">
+					    <?= $c['answer'] ?>
+						</div>
+						<div class="action-bottom">
+							<a href="#" class="ln" data-toggle="collapse" data-target="#ask_com">beri komentar</a>
+						</div>
+						<hr>
 					    <?php foreach ($comments as $a) { ?>
 					    <?php if($c['id_answer'] == $a['id_com_to_answer']) { ?>
 					    <div class="media">
 						  <div class="media-left">
 						    <a href="#">
-						      <img class="media-object img-circle" src="<?= base_url('assets/img/img-men2.png') ?>" width="35">
+						      <img class="media-object img-circle" src="<?= base_url('assets/img/img-men2.png') ?>" width="20">
 						    </a>
 						  </div>
-						  <div class="media-body">
-						    <h4 class="media-heading">
-						    	<a href="#">
-						    		<?= $a['name'] ?>
-						    	</a>
-						    </h4>
+						  <div class="media-body hr">
+						    <h5 class="media-heading">
+						    	<a href="#"><?= $a['name'] ?></a>
+					    		<small><?= date('M d - h:i A ', strtotime($a['created_at'])); ?></small>
+						    </h5>
 						    	<?= $a['comment']; ?>
 						  </div>
 						</div>
@@ -94,5 +113,29 @@
 						<?php } ?>
 					  </div>
 					</div>
+					<br><br>
 					<?php } ?>
+
+					<div class="panel">
+						<h4>Jawaban Anda?</h4>
+						<form method="post" action="<?= base_url('welcome/writeMd') ?>">
+						<div class="form-group">
+							<div class="wmd-panel">
+						        <div id="wmd-button-bar" ></div>
+						        <label for="answer_question_body" class="required"></label>
+						        <textarea class="wmd-input" id="ask_question_body" name="asking"></textarea>
+						    </div>
+
+						    <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary btn-sm">Posting Jawaban</button>
+						</div>
+						</form>
+					</div>
 			</div>
+<script>
+  $(".media-body").each(function () {
+    $("pre").addClass("prettyprint");
+});
+</script>

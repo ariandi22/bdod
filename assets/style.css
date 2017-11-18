@@ -12,6 +12,11 @@ body {
           border-radius: 0 !important;
 }
 */
+.panel, textarea {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
 .b-top {
   border-top: 3px solid #A5C8E0;
 }
@@ -293,10 +298,27 @@ ul.dropdown-lr {
 }
 .media .qa{
   font-size: 14px!important;
-  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
-.action-bottom {
+.action-bottom  {
   margin-top: 10px;
+}
+.action-bottom a {
+  text-decoration: none;
+}
+
+/*media body comment hr*/
+/*hr {
+  border-top: 1px solid orange;
+}*/
+.media .hr {
+  border-bottom: 0.5px dotted #d0d0d0;
+  padding-bottom: 7px;
+}
+.media .prof {
+  border-bottom: 0.5px solid #f1f1f1;
+  padding-bottom: 7px;
 }
 
 @media only screen and (max-width: 500px) {

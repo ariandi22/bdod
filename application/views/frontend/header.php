@@ -7,12 +7,17 @@ $this->load->helper('date');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>Welcome to CodeIgniter</title>
 
 	<title>Welcome to </title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/bs/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/style.css"/>
+    <link href="<?php echo base_url()?>assets/gpd/css/wmd.css" rel="stylesheet" />
+    <link href="<?php echo base_url()?>assets/prettify/prettify.css" type="text/css" rel="stylesheet" />
+
+    <script type="text/javascript" src="<?php echo base_url()?>assets/prettify/prettify.js"></script>
     
  
 	<style type="text/css">
@@ -25,7 +30,7 @@ $this->load->helper('date');
     <script src="<?php echo base_url()?>assets/bs/js/bootstrap.min.js"></script>
     
 </head>
-<body>
+<body onload="prettyPrint()">
 
  <nav class="navbar navbar-default navbar-fixed-top b-top">
   <div class="container">
@@ -97,5 +102,10 @@ $this->load->helper('date');
   <p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
 
+    <script src="<?php echo base_url()?>assets/gpd/markdown/resizer.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/gpd/markdown/Markdown.Converter.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/gpd/markdown/Markdown.Editor.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/gpd/markdown/Markdown.Sanitizer.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/gpd/markdown/Markdown.js" type="text/javascript"></script>
 </body>
 </html> 

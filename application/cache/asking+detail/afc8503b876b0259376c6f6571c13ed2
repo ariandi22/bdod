@@ -1,0 +1,5 @@
+O:12:"CI_DB_result":8:{s:7:"conn_id";N;s:9:"result_id";N;s:12:"result_array";a:1:{i:0;a:7:{s:9:"id_asking";s:1:"1";s:9:"ask_title";s:51:"Cara integrase codeigniter dengan template AdminBsb";s:6:"asking";s:150:"Om, minta tutorial cara instegrasi admin BSB dengan codeigniter dong. Bingung caranya soalnya baru pertama kali pakek.
+
+<b>Mohon bantuannya suhu</b>";s:7:"id_user";s:1:"1";s:10:"created_at";s:19:"2017-11-15 00:00:00";s:5:"point";s:1:"0";s:4:"name";s:5:"Angga";}}s:13:"result_object";a:1:{i:0;O:8:"stdClass":7:{s:9:"id_asking";s:1:"1";s:9:"ask_title";s:51:"Cara integrase codeigniter dengan template AdminBsb";s:6:"asking";s:150:"Om, minta tutorial cara instegrasi admin BSB dengan codeigniter dong. Bingung caranya soalnya baru pertama kali pakek.
+
+<b>Mohon bantuannya suhu</b>";s:7:"id_user";s:1:"1";s:10:"created_at";s:19:"2017-11-15 00:00:00";s:5:"point";s:1:"0";s:4:"name";s:5:"Angga";}}s:20:"custom_result_object";a:0:{}s:11:"current_row";i:0;s:8:"num_rows";i:1;s:8:"row_data";N;}
