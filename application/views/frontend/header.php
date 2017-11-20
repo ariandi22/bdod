@@ -85,7 +85,7 @@ $this->load->helper('date');
 </nav>
 
 <div class="container">
-  <div class="row" style="padding-top: 10px;">
+  <div class="row row-g" style="padding-top: 5px;">
 
         <!-- content start -->
         <?php $this->load->view($content); ?>

@@ -19,6 +19,13 @@ class M_asking extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function hitung_pertanyaan() {
+		$this->db->select('*')
+				 ->from('ask');
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
 	public function getAsk($where=array()) {
 		$this->db->cache_on();
 		$query = $this->db->select('*')
@@ -33,16 +40,6 @@ class M_asking extends CI_Model {
 		}
 	}
 
-	public function icomments() {
-		$this->db->cache_on();
-		$this->db->select('*')
-				 ->from('comments')
-				 ->join('users', 'users.id_user=comments.id_user')
-				 ->order_by('created_at', 'asc');
-		$query = $this->db->get();
-		return $query->result_array();
-	}
-
 	public function getAns($where=array()) {
 		$this->db->cache_on();
 		$query = $this->db->select('*')
@@ -53,12 +50,35 @@ class M_asking extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function countAnswers($where=array()) {
+	public function icomments() {
+		$this->db->cache_delete_all();
+		$this->db->select('*')
+				 ->from('comments')
+				 ->join('users', 'users.id_user=comments.id_user')
+				 ->order_by('created_at', 'asc');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
+
+	public function getComByAsking($where=array()) {
+		$this->db->cache_on();
 		$query = $this->db->select('*')
-				  	  	->from('answers')
-						->where($where)
-						->get();
-		return $query->num_rows();
+				 ->from('comments')
+				 ->join('users', 'users.id_user=comments.id_user')
+				 ->where($where)
+				 ->order_by('created_at', 'asc')
+				 ->get();
+		return $query->result_array();
+	}
+
+	public function getComByAnswers($where=array()) {
+		$query = $this->db->select('*')
+				 ->from('comments')
+				 ->join('users', 'users.id_user=comments.id_user')
+				 ->where($where)
+				 ->order_by('created_at', 'asc')
+				 ->get();
+		return $query->result_array();
 	}
 
 }

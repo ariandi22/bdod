@@ -1,5 +1,6 @@
 
 <div class="col-md-8">
+
 		<?php foreach($asking as $a) { ?>
 		<div class="col-md-1 col-xs-2 is-has">
 
